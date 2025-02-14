@@ -13,4 +13,3 @@ for i in range(10):
   file_writer.writerrow([now, entry])
 
 file.close()
-  
