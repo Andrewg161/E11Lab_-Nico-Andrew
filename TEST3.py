@@ -48,7 +48,6 @@ pm25 = PM25_UART(uart, reset_pin)
 # pm25 = PM25_I2C(i2c, reset_pin)
 
 print("Found PM2.5 sensor, reading data...")
-wr
 start_time = time.time()
 run_time = 30
 while time.time() - start_time < run_time:
@@ -89,4 +88,4 @@ file_writer.writerow(["Time", "aqdata["pm10 standard"]", "aqdata["pm25 standard"
     print("---------------------------------------")
     
     writecscv(aqdata["pm10 env"], aqdata["pm25 env"], aqdata["pm100 env"])
-writecsvclose
+file.close()
