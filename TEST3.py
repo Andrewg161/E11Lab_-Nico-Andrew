@@ -46,17 +46,19 @@ pm25 = PM25_UART(uart, reset_pin)
 # i2c = busio.I2C(board.SCL, board.SDA, frequency=100000)
 # Connect to a PM2.5 sensor over I2C
 # pm25 = PM25_I2C(i2c, reset_pin)
+file = open("test.csv", "w", newline=None)
+ 
+file_writer = csv.writer(file)
+
+file_writer.writerow(["Time", "PM10", "PM25", "PM100"])
+
 
 print("Found PM2.5 sensor, reading data...")
 start_time = time.time()
 run_time = 30
 while time.time() - start_time < run_time:
     time.sleep(1)
-file = open("test.csv", "w", newline=None)
 
-file_writer = csv.writer(file)
-
-file_writer.writerow(["Time", "aqdata["pm10 standard"]", "aqdata["pm25 standard"]", "aqdata["pm100 standard"]"])
 
     try:
         aqdata = pm25.read()
@@ -64,6 +66,7 @@ file_writer.writerow(["Time", "aqdata["pm10 standard"]", "aqdata["pm25 standard"
     except RuntimeError:
         print("Unable to read from sensor, retrying...")
         continue
+    file_writer.writerow([time.time(), aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"]])
 
     print()
     print("Concentration Units (standard)")
@@ -89,3 +92,4 @@ file_writer.writerow(["Time", "aqdata["pm10 standard"]", "aqdata["pm25 standard"
     
     writecscv(aqdata["pm10 env"], aqdata["pm25 env"], aqdata["pm100 env"])
 file.close()
+
