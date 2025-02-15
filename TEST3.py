@@ -11,7 +11,9 @@ import board
 import busio
 from digitalio import DigitalInOut, Direction, Pull
 from adafruit_pm25.i2c import PM25_I2C
-
+import csv
+import numpy as np
+import time
 
 reset_pin = None
 # If you have a GPIO, its not a bad idea to connect it to the RESET pin
@@ -46,9 +48,16 @@ pm25 = PM25_UART(uart, reset_pin)
 # pm25 = PM25_I2C(i2c, reset_pin)
 
 print("Found PM2.5 sensor, reading data...")
-
-while True:
+wr
+start_time = time.time()
+run_time = 30
+while time.time() - start_time < run_time:
     time.sleep(1)
+file = open("test.csv", "w", newline=None)
+
+file_writer = csv.writer(file)
+
+file_writer.writerow(["Time", "aqdata["pm10 standard"]", "aqdata["pm25 standard"]", "aqdata["pm100 standard"]"])
 
     try:
         aqdata = pm25.read()
@@ -78,3 +87,6 @@ while True:
     print("Particles > 5.0um / 0.1L air:", aqdata["particles 50um"])
     print("Particles > 10 um / 0.1L air:", aqdata["particles 100um"])
     print("---------------------------------------")
+    
+    writecscv(aqdata["pm10 env"], aqdata["pm25 env"], aqdata["pm100 env"])
+writecsvclose
