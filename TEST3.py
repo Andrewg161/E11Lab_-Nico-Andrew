@@ -90,10 +90,5 @@ while time.time() - start_time < run_time:
     print("Particles > 10 um / 0.1L air:", aqdata["particles 100um"])
     print("---------------------------------------")
 
-	print("Start time:", time.ctime(start_time))
-		end_time = time.time()
-	print("End time:", time.ctime(end_time))
-	print("Total time:", end_time - start_time, "seconds")
-
 file.close()
 
