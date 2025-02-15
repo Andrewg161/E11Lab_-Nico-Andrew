@@ -90,6 +90,5 @@ while time.time() - start_time < run_time:
     print("Particles > 10 um / 0.1L air:", aqdata["particles 100um"])
     print("---------------------------------------")
     
-    writecscv(aqdata["pm10 env"], aqdata["pm25 env"], aqdata["pm100 env"])
 file.close()
 
