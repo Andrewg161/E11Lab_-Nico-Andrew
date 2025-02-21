@@ -87,7 +87,7 @@ file_writer.writerow(["Time", "PM10", "PM25", "PM100"])
 
 print("Found PM2.5 sensor, reading data...")
 start_time = time.time()
-run_time = 30
+run_time = 10
 while time.time() - start_time < run_time:
     time.sleep(1)
 
