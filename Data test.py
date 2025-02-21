@@ -36,7 +36,7 @@ while time.time() - start_time < run_time:
     elapsed_time = round(time.time() - start_time, 2)
     print("Time Elapsed:", elapsed_time, "sec")
 
-    #  Weather data is values 
+    #  Weather data in values 
     temperature = bme680.temperature
     humidity = bme680.relative_humidity
     pressure = bme680.pressure
