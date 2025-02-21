@@ -13,7 +13,7 @@ else:
 #run_time = int(sys.argv[1])
 
 count = 0 
-while coutn < run_time:
+while count < run_time:
   print(count)
   count += 1
   time.sleep(1)
