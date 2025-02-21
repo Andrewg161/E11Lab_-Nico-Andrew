@@ -51,7 +51,7 @@ while count < runtime:
 	    print("Unable to read from sensor, retrying...")
 	    continue
 	
-file_writer.writerow([time.time(), aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"]]python)
+#file_writer.writerow([time.time(), aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"]]python)
 	
 	print()
 	print("Concentration Units (standard)")
@@ -75,3 +75,5 @@ file_writer.writerow([time.time(), aqdata["pm10 standard"], aqdata["pm25 standar
 	print("Particles > 10 um / 0.1L air:", aqdata["particles 100um"])
 	print("---------------------------------------")
 	
+	file_writer.writerow(["Time", "Temperature (C)", "Humidity (%)", "Pressure (hPa)", "Gas (Ohm)",
+                      "PM10", "PM2.5", "PM100"])
