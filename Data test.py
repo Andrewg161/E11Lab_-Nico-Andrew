@@ -34,7 +34,7 @@ print("Collecting data")
 
 start_time = time.time()
 while time.time() - start_time < run_time:
-    elapsed_time = round(time.time() - start_time, 2)
+    elapsed_time = time.time() - start_time
     print("Time Elapsed:", elapsed_time, "sec")
 
     #  Weather data in values 
