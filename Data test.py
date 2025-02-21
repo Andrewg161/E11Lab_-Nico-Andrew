@@ -5,9 +5,10 @@ import adafruit_bme680
 import busio
 import serial
 import csv
-from adafruit_pm25.uart import PM25_UART
+from adafruit_pm25.uart 
+import PM25_UART
 
-#  runtime of 10
+# Runtime of 10
 run_time = 10  
 
 # Testing argumement
@@ -58,7 +59,7 @@ while time.time() - start_time < run_time:
     # writer row
     file_writer.writerow([elapsed_time, temperature, humidity, pressure, gas, pm10, pm25_value, pm100])
 
-    time.sleep(2)  
+    time.sleep(1)  
 
 file.close()
 print("Data collection complete. Check sensor_data.csv")
