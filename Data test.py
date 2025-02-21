@@ -10,7 +10,7 @@ from adafruit_pm25.uart import PM25_UART
 #  runtime of 10
 run_time = 10  
 
-# an argumement
+# Testing argumement
 if len(sys.argv) > 1:
     run_time = int(sys.argv[1])
 
@@ -23,7 +23,7 @@ bme680.sea_level_pressure = 1013.25
 uart = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=0.25)
 pm25 = PM25_UART(uart, reset_pin=None)
 
-# Open C
+# Open CSV
 file = open("sensor_data.csv", "w", newline="")
 file_writer = csv.writer(file)
 file_writer.writerow(["Time", "Temperature (C)", "Humidity (%)", "Pressure (hPa)", "Gas (Ohm)",
@@ -58,7 +58,7 @@ while time.time() - start_time < run_time:
     # writer row
     file_writer.writerow([elapsed_time, temperature, humidity, pressure, gas, pm10, pm25_value, pm100])
 
-    time.sleep(2)  #
+    time.sleep(2)  
 
 file.close()
-print("Data collection complete! Check sensor_data.csv")
+print("Data collection complete. Check sensor_data.csv")
