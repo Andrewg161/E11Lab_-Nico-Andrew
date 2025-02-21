@@ -3,13 +3,14 @@ import time
 
 print(sys.argv)
 
+run_time = 10 
 if len(sys.argv) < 2:
   print('Script requieres run_time(int) as an input')
-  exit()
+  #exit()
 else:
   run_time = int(sys.argv[1])
 
-run_time = int(sys.argv[1])
+#run_time = int(sys.argv[1])
 
 count = 0 
 while coutn < run_time:
