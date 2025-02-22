@@ -13,7 +13,7 @@ import PM25_UART
 run_time = 10  
 
 # Testing argumement
-if len(sys.argv) > 1:
+if len(sys.argv) < 2:
     run_time = int(sys.argv[1])
 
 # Initialize BME680 
