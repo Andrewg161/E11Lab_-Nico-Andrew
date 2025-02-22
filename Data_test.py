@@ -5,6 +5,7 @@ import adafruit_bme680
 import busio
 import serial
 import csv
+import numpy as np
 from adafruit_pm25.uart 
 import PM25_UART
 
