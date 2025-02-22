@@ -59,7 +59,8 @@ while time.time() - start_time < run_time:
   
     # writer row
     file_writer.writerow([elapsed_time, temperature, humidity, pressure, gas, pm10, pm25_value, pm100])
-
+    
+    count +=1
     time.sleep(1)  
 
 file.close()
