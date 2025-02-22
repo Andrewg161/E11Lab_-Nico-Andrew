@@ -68,5 +68,7 @@ while count < runtime:
 	print("Particles > 10 um / 0.1L air:", aqdata["particles 100um"])
 	print("---------------------------------------")
 
+	count += 1
+	time.sleep(1)
 	
 	
