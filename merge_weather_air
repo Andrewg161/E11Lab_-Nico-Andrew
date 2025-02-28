@@ -15,7 +15,7 @@ reset_pin = None
 uart = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=0.25)
 from adafruit_pm25.uart import PM25_UART
 pm25 = PM25_UART(uart, reset_pin)
-file = open("outside.csv", "w", newline=None)
+file = open("wk5.csv", "w", newline=None)
 file_writer = csv.writer(file)
 file_writer.writerow(["Time", "Temperature (C)", "Humidity (%)", "Pressure (hPa)", "Gas (Ohm)",
                       "PM10", "PM2.5", "PM100"])
