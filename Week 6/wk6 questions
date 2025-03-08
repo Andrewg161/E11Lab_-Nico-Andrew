@@ -1,1 +1,11 @@
+Step 2:
+The sensors from the other group and our group were very different, where I think that the sensors are precise but not accurate. 
 
+Step 3:
+Somewhere in the lab where we think the airquality might be much worse is the restroom. 
+
+Step 4:
+.The hidden variable is time. 
+.The plot shows that temperature and humidity are correlated, as there is a negative correlation. The way to quantify this is to use the correlation coefficient and/or a linear regression where the slop would describe the correlation strength.
+.No based on our data the temperature and other proprty(pressure) are not correlated 
+.No it doesn't seem like based on our data that temperature and PM2.5 are related. The way that we collect data that ensures that the times match up is to carefully make sure that the times are the same and also that we have the same start time. 
