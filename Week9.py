@@ -12,7 +12,7 @@ def pulse_detected(channel):
 
 #The Set up for GPIO
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(SIGNAL_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(SIGNAL_PIN, GPIO.IN)
 GPIO.add_event_detect(SIGNAL_PIN, GPIO.FALLING, callback=pulse_detected)
 print("Running")
 
