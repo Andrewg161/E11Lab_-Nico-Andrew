@@ -16,22 +16,15 @@ GPIO.setup(SIGNAL_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.add_event_detect(SIGNAL_PIN, GPIO.FALLING, callback=pulse_detected)
 print("Running")
 
-start_time = datetime.datetime.now()
-count = 0
-
-# While loop 
-while True:
-    current_time = datetime.datetime.now()
-    elapsed_time = (current_time - start_time).seconds
-
-    if elapsed_time < 60:
-        if GPIO.input(SIGNAL_PIN) == GPIO.LOW:
-            count += 1
-    else:
+try:
+    while True:
+        start_time = datetime.datetime.now()
+        while (datetime.datetime.now() - start_time).seconds < 60:
+            None  # Don't sleep, keep checking
         print("Counts in the last minute:", count)
-        count = 0 
-        start_time = datetime.datetime.now() 
-        
-GPIO.cleanup()
+        count = 0  # Reset count for next minute
 
+finally:
+    GPIO.cleanup()
+    print("Goodbye!")
 
