@@ -23,3 +23,5 @@ while True:
         None
     print("Counts in the last minute:", count)
     count = 0 
+GPIO.cleanup()
+
