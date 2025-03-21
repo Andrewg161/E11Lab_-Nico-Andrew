@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import datetime
 
-SIGNAL_PIN = 2
+SIGNAL_PIN = 6
 count = 0
 
 def pulse_detected(channel):
@@ -16,15 +16,11 @@ GPIO.setup(SIGNAL_PIN, GPIO.IN)
 GPIO.add_event_detect(SIGNAL_PIN, GPIO.FALLING, callback=pulse_detected)
 print("Running")
 
-try:
-    while True:
-        start_time = datetime.datetime.now()
-        while (datetime.datetime.now() - start_time).seconds < 60:
-            None  # Don't sleep, keep checking
-        print("Counts in the last minute:", count)
-        count = 0  # Reset count for next minute
-
-finally:
-    GPIO.cleanup()
-    print("Goodbye!")
+while True:
+    time.sleep(10)
+#    start_time = datetime.datetime.now()
+#    while (datetime.datetime.now() - start_time).seconds < 60:
+#        None  # Don't sleep, keep checking
+#    print("Counts in the last minute:", count)
+#    count = 0  # Reset count for next minute
 
