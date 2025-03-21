@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import datetime
+import time
 
 SIGNAL_PIN = 6
 count = 0
