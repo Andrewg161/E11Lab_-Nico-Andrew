@@ -33,6 +33,7 @@ while True:
     
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     csv_writer.writerow([timestamp, count]) #Adding the CSV Writer
+    csv_file.flush()
     
     count = 0  
 csv_file.close() #Close the file
