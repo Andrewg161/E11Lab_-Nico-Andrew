@@ -20,7 +20,7 @@ print("Running")
 while True:
     time.sleep(10)
     start_time = datetime.datetime.now()
-    while (datetime.datetime.now() - start_time).seconds < 60:
+    while (datetime.datetime.now() - start_time).seconds < 120:
         None  
     print("Counts in the last minute:", count)
     count = 0  
