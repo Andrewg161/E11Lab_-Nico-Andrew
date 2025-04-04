@@ -1,10 +1,16 @@
 import RPi.GPIO as GPIO
 import datetime
 import time
-import csv  # < added
+import csv 
 
 SIGNAL_PIN = 6
 count = 0
+
+# Making the CSV_Writerow
+output_file = "counts_output.csv"
+csv_file = open(output_file, mode='w', newline='')
+csv_writer = csv.writer(csv_file)
+csv_writer.writerow(["Timestamp", "Counts"])
 
 def pulse_detected(channel):
     global count
@@ -12,29 +18,21 @@ def pulse_detected(channel):
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print("Pulse detected at", timestamp)
 
-# The Set up for GPIO
+#The Set up for GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(SIGNAL_PIN, GPIO.IN)
 GPIO.add_event_detect(SIGNAL_PIN, GPIO.FALLING, callback=pulse_detected)
 print("Running")
 
-end_time = time.time() + 120  # 2 minutes total runtime
-
-# added for saving data
-output_file = open("week11_data.csv", "w", newline="")
-writer = csv.writer(output_file)
-writer.writerow(["Timestamp", "Counts"])
-
-while time.time() < end_time:
+while True:
     time.sleep(10)
     start_time = datetime.datetime.now()
-    while (datetime.datetime.now() - start_time).seconds < 60:
+    while (datetime.datetime.now() - start_time).seconds < 120:
         None  
     print("Counts in the last minute:", count)
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # added
-    writer.writerow([timestamp, count])  # added
-    count = 0
-
-#added after loop ends
-output_file.close()
-print("Data saved to week11_data.csv")
+    
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    csv_writer.writerow([timestamp, count]) #Adding the CSV Writer
+    csv_file.flush()
+    count = 0  
+csv_file.close() #Close the file
