@@ -3,7 +3,7 @@ import datetime
 import time
 import csv 
 
-SIGNAL_PIN = 17
+SIGNAL_PIN = 19
 count = 0
 
 # Making the CSV_Writerow
